@@ -1,0 +1,67 @@
+{
+  "swiperImages": [
+    "../src/assets/banner1.jpg",
+    "../src/assets/banner2.jpg",
+    "../src/assets/banner3.jpg"
+  ],
+  "smallImages": [
+    {
+      "id": 1,
+      "src": "../src/assets/men-shirt.jpg",
+      "alt": "Small Image 1",
+      "text": "男衬衫",
+      "price": "100"
+    },
+    {
+      "id": 2,
+      "src": "../src/assets/men-shirt.jpg",
+      "alt": "Small Image 1",
+      "text": "男衬衫",
+      "price": "100"
+    },
+    {
+      "id": 3,
+      "src": "../src/assets/men-shirt.jpg",
+      "alt": "Small Image 1",
+      "text": "男衬衫",
+      "price": "100"
+    },
+    {
+      "id": 4,
+      "src": "../src/assets/men-shirt.jpg",
+      "alt": "Small Image 1",
+      "text": "男衬衫",
+      "price": "100"
+    }
+  ],
+  "categoryImages": [
+    {
+      "id": 1,
+      "src": "../src/assets/women-dress.jpg.jpg",
+      "alt": "Category Image 1",
+      "text": "连衣裙",
+      "price": "100"
+    },
+    {
+      "id": 2,
+      "src": "../src/assets/women-dress.jpg.jpg",
+      "alt": "Category Image 2",
+      "text": "连衣裙",
+      "price": "100"
+    },
+    {
+      "id": 3,
+      "src": "../src/assets/women-dress.jpg.jpg",
+      "alt": "Category Image 3",
+      "text": "连衣裙",
+      "price": "100"
+    },
+    {
+      "id": 4,
+      "src": "../src/assets/women-dress.jpg.jpg",
+      "alt": "Category Image 4",
+      "text": "连衣裙",
+      "price": "100"
+    }
+  ]
+}
