@@ -4,6 +4,9 @@
     <div v-if="isLoggedIn" class="user-info">
       <el-avatar :size="64" icon="UserFilled" />
       <h2>{{ currentUser.name }}</h2>
+      <h2>{{ currentUser.text }}</h2>
+      <h2>just call me</h2>
+      <h2>{{ currentUser.phone }}</h2>
       <el-button type="danger" @click="handleLogout">退出登录</el-button>
     </div>
 
@@ -132,7 +135,7 @@ const handleLogin = async () => {
     const response = await fetch('/UserMsg.json')
     const data = await response.json()
     
-    const user = data.zhou.find(
+    const user = data.userdata.find(
       user => user.name === loginForm.username && user.psw === loginForm.password
     )
 

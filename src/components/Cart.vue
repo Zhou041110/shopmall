@@ -1,6 +1,6 @@
 <script setup>
 import { useCartStore } from '../stores/cartStore'
-import { ElButton, ElInputNumber, ElEmpty } from 'element-plus'
+import { ElButton, ElInputNumber, ElEmpty, ElMessageBox } from 'element-plus'
 
 const cartStore = useCartStore()
 
@@ -11,6 +11,14 @@ const updateQuantity = (productId, quantity) => {
 
 const removeItem = (productId) => {
   cartStore.removeFromCart(productId)
+}
+
+const checkout = () => {
+  ElMessageBox.alert(`已支付的总金额: ¥${cartStore.totalPrice}`, '结算', {
+    confirmButtonText: '确定',
+  }).then(() => {
+    cartStore.clearCart()
+  })
 }
 </script>
 
@@ -48,7 +56,7 @@ const removeItem = (productId) => {
         <div class="total">
           总计: <span class="total-price">¥{{ cartStore.totalPrice }}</span>
         </div>
-        <el-button type="danger" size="large">
+        <el-button type="danger" size="large" @click="checkout">
           结算 ({{ cartStore.totalItems }}件)
         </el-button>
       </div>

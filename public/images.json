@@ -1,67 +1,78 @@
 {
+ 
   "swiperImages": [
-    "../src/assets/banner1.jpg",
-    "../src/assets/banner2.jpg",
-    "../src/assets/banner3.jpg"
+    "https://sky-itcast-zhou.oss-cn-beijing.aliyuncs.com/banner1.jpg",
+    "https://sky-itcast-zhou.oss-cn-beijing.aliyuncs.com/banner2.jpg",
+    "https://sky-itcast-zhou.oss-cn-beijing.aliyuncs.com/banner3.jpg"
   ],
-  "smallImages": [
+  "recommendproducts": [
     {
-      "id": 1,
-      "src": "../src/assets/men-shirt.jpg",
-      "alt": "Small Image 1",
-      "text": "男衬衫",
-      "price": "100"
+      "id": 2,
+      "src": "https://sky-itcast-zhou.oss-cn-beijing.aliyuncs.com/men-shirt.jpg",
+      "alt": "Category Image 2",
+      "text": "男士衬衫",
+      "price": "200",
+      "kind": "男装"
     },
     {
       "id": 2,
-      "src": "../src/assets/men-shirt.jpg",
-      "alt": "Small Image 1",
-      "text": "男衬衫",
-      "price": "100"
+      "src": "https://sky-itcast-zhou.oss-cn-beijing.aliyuncs.com/men-shirt.jpg",
+      "alt": "Category Image 2",
+      "text": "男士衬衫",
+      "price": "200",
+      "kind":"男装"
     },
     {
-      "id": 3,
-      "src": "../src/assets/men-shirt.jpg",
-      "alt": "Small Image 1",
-      "text": "男衬衫",
-      "price": "100"
+          "id": 2,
+          "src": "https://sky-itcast-zhou.oss-cn-beijing.aliyuncs.com/men-shirt.jpg",
+          "alt": "Category Image 2",
+          "text": "男士衬衫",
+          "price": "200",
+          "kind": "男装"
     },
     {
-      "id": 4,
-      "src": "../src/assets/men-shirt.jpg",
-      "alt": "Small Image 1",
-      "text": "男衬衫",
-      "price": "100"
+          "id": 2,
+          "src": "https://sky-itcast-zhou.oss-cn-beijing.aliyuncs.com/men-shirt.jpg",
+          "alt": "Category Image 2",
+          "text": "男士衬衫",
+          "price": "200",
+          "kind": "男装"
     }
+    
+    
   ],
-  "categoryImages": [
+  "products": [
     {
       "id": 1,
-      "src": "../src/assets/women-dress.jpg.jpg",
+      "src": "https://sky-itcast-zhou.oss-cn-beijing.aliyuncs.com/women-dress.jpg",
       "alt": "Category Image 1",
       "text": "连衣裙",
-      "price": "100"
+      "price": "100",
+      "kind": "女装"
     },
     {
       "id": 2,
-      "src": "../src/assets/women-dress.jpg.jpg",
+      "src": "https://sky-itcast-zhou.oss-cn-beijing.aliyuncs.com/men-shirt.jpg",
       "alt": "Category Image 2",
-      "text": "连衣裙",
-      "price": "100"
+      "text": "男士衬衫",
+      "price": "200",
+      "kind":"男装"
     },
     {
       "id": 3,
-      "src": "../src/assets/women-dress.jpg.jpg",
+      "src": "https://sky-itcast-zhou.oss-cn-beijing.aliyuncs.com/kids-shoes.jpg",
       "alt": "Category Image 3",
-      "text": "连衣裙",
-      "price": "100"
+      "text": "童鞋",
+      "price": "300",
+      "kind":"童装"
     },
     {
       "id": 4,
-      "src": "../src/assets/women-dress.jpg.jpg",
+      "src": "https://sky-itcast-zhou.oss-cn-beijing.aliyuncs.com/women-dress.jpg",
       "alt": "Category Image 4",
       "text": "连衣裙",
-      "price": "100"
+      "price": "200",
+      "kind":"女装"
     }
   ]
 }

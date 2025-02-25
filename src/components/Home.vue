@@ -1,28 +1,25 @@
 <template>
   <div class="home-page">
     <!-- 轮播图容器 -->
-    <swiper
-      v-if="swiperImages.length > 0"
-      :slides-per-view="1"
-      :space-between="10"
+  <!-- 修改后的轮播图容器 -->
+    <swiper 
+      v-if="swiperImages.length > 0" 
+      :modules="[Autoplay]"
+      :slides-per-view="1" 
+      :space-between="10" 
       :loop="true"
-      :autoplay="{ delay: 3000 }" 
+      :autoplay="{ delay: 2000, disableOnInteraction: false }" 
       class="mySwiper"
     >
       <swiper-slide v-for="(image, index) in swiperImages" :key="index">
         <img :src="image" :alt="'Slide ' + (index + 1)">
       </swiper-slide>
     </swiper>
-    
+
     <!-- 小图片容器 -->
     <div v-if="smallImages.length > 0" class="small-images">
-      <div 
-        v-for="image in smallImages" 
-        :key="image.id" 
-        class="small-image"
-        @click="$router.push(`/product/${image.id}`)"
-      >
-        <img :src="image.src" :alt="image.alt"/>
+      <div v-for="image in smallImages" :key="image.id" class="small-image" @click="$router.push(`/product/${image.id}`)">
+        <img :src="image.src" :alt="image.alt" />
         <div class="small-image-info">
           <p class="small-image-text">{{ image.text }}</p>
           <!-- <p class="small-image-price">¥{{ image.price }}</p> -->
@@ -30,14 +27,10 @@
       </div>
     </div>
 
-    <!-- 分类选项卡 -->
+    <!-- 分类选项卡 男装女装童装-->
     <div class="category-tabs">
-      <button
-        v-for="category in categories"
-        :key="category.name"
-        :class="{ active: selectedCategory === category.name }"
-        @click="selectCategory(category.name)"
-      >
+      <button v-for="category in categories" :key="category.name" :class="{ active: selectedCategory === category.name }"
+        @click="selectCategory(category.name)">
         {{ category.name }}
       </button>
     </div>
@@ -45,13 +38,9 @@
     <!-- 分类商品展示 -->
     <div class="category-images">
       <div class="image-grid">
-        <div 
-          v-for="image in categoryImages" 
-          :key="image.id"
-          class="image-item"
-          @click="$router.push(`/product/${image.id}`)"
-        >
-          <img :src="image.src" :alt="image.alt"/>
+        <div v-for="image in filteredCategoryImages" :key="image.id" class="image-item"
+          @click="$router.push(`/product/${image.id}`)">
+          <img :src="image.src" :alt="image.alt" />
           <div class="image-info">
             <p class="image-text">{{ image.text }}</p>
             <p class="image-price">¥{{ image.price }}</p>
@@ -63,9 +52,11 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, computed } from 'vue'
+import { Autoplay } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import 'swiper/css'
+import 'swiper/css/autoplay'
 
 // 分类数据
 const categories = [
@@ -90,8 +81,8 @@ const fetchImages = async () => {
     const response = await fetch('/images.json')
     const data = await response.json()
     swiperImages.value = data.swiperImages || []
-    smallImages.value = data.smallImages || []
-    categoryImages.value = data.categoryImages || []
+    smallImages.value = data.recommendproducts || []
+    categoryImages.value = data.products || []
   } catch (error) {
     console.error('Error loading images:', error)
   }
@@ -99,6 +90,11 @@ const fetchImages = async () => {
 
 onMounted(() => {
   fetchImages()
+})
+
+// 计算属性，根据选中的分类过滤商品
+const filteredCategoryImages = computed(() => {
+  return categoryImages.value.filter(image => image.kind === selectedCategory.value)
 })
 </script>
 
@@ -134,7 +130,7 @@ onMounted(() => {
   background: white;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .small-image img {
@@ -198,7 +194,7 @@ onMounted(() => {
   background: white;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .image-item img {

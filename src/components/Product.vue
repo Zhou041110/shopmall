@@ -14,11 +14,7 @@ const fetchProductInfo = async () => {
   try {
     const response = await fetch('/images.json')
     const data = await response.json()
-    // 从 smallImages 和 categoryImages 中查找商品
-    const product = 
-      data.smallImages.find(item => item.id === Number(productId)) ||
-      data.categoryImages.find(item => item.id === Number(productId))
-    
+    const product = data.products.find(product => product.id === Number(productId))
     if (product) {
       // 确保价格是数字类型
       productInfo.value = {
@@ -70,7 +66,7 @@ onMounted(() => {
         <div class="price">¥{{ productInfo.price }}</div>
         <div class="product-desc">
           <p>商品描述：</p>
-          <p>{{ productInfo.alt }}</p>
+          <p>{{ productInfo.text }}</p>
         </div>
       </div>
     </div>
